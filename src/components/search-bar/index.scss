@@ -1,0 +1,114 @@
+@import "../../theme/variables";
+@import "../../theme/utils/responsive";
+@import "../../theme/utils/utils";
+
+.search-holder {
+
+  @include box_shadow(3);
+}
+
+.search-bar {
+  background: $filter-background-color;
+  padding: 3.5rem 2rem 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: -1rem;
+  margin-right: -1rem;
+
+
+  input {
+     @include box_shadow(1);
+    width: 85%;
+    padding: 2rem;
+    border: 1px solid #1d1d1d;
+    background: #1f1f1f;
+    font-size: 2rem;
+    font-family: 'Varela Round', sans-serif;
+    letter-spacing: 1px;
+    color: #fff;
+    font-weight: 600;
+    &:focus{
+      transition: 0.25s ease-in;
+        opacity: 0.55;
+      letter-spacing: 3px;
+      font-weight: 100;
+      color:#fafafa;
+    }
+    &:hover{
+     box-shadow: 0 0 3px rgba(81, 203, 238, 1);
+    }
+  }
+
+  @include bp-xs-max{
+    padding: 1rem 2rem 2rem;
+    input {
+      width: 77%;
+      font-size: 1.5rem;
+    }
+  }
+
+}
+
+.sorter {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $filter-background-color;
+  margin-left: -1rem;
+  margin-right: -1rem;
+
+  @include bp-xs-max{
+
+    bottom: 0;
+    overflow: scroll;
+    width: 100%;
+    z-index: 10;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+  }
+
+  li {
+    list-style: none;
+    a {
+      padding: 1rem 2rem;
+      text-decoration: none;
+      color: #666666;
+      text-transform: uppercase;
+      display: block;
+      border-bottom: 2px solid $filter-background-color;
+      @include transitions(all 0.7s ease-in-out);
+      &.active,
+      &:hover {
+        // color: #e2e2e2;
+        color:rgb(30,188,40);
+        border-bottom: 2px solid rgb(45,70,185);
+        @include transitions(all 0.5s ease);
+      }
+       &.active{
+         font-weight: 800;
+         letter-spacing: 5px;
+       }
+
+      @include bp-xs-max{
+        border-bottom: none;
+        border-top: 2px solid $filter-background-color;
+        font-size: 1.3rem;
+        &.active,
+        &:hover {
+          border-top: 2px solid rgb(45,70,185);
+          border-bottom: none;
+        }
+      }
+
+      @include bp-md-max{
+        font-size: 1.3rem;
+      }
+    }
+
+  }
+}
